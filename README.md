@@ -80,17 +80,25 @@ Folder to store your downloaded dataset from Brainweb website. Make sure to conf
 ```
   Unsupervised_Anomaly_Detection_Brain_MRI/
   │
-  ├── Unsupervised Anomaly Detection Brain-MRI.ipynb - Jupyter notebook to work on Google Colab
-  ├── run.py - execute to run in commandline
-  ├── config.json - holds configuration
+  ├── UAD_brain_MRI.ipynb 
+  ├── run.py 
+  ├── config.default.json
+  ├── requirements.txt 
+  ├── GPU_configuration.txt 
   │
-  ├── data_loaders/ - Definition of dataloaders
+  ├── data_loaders/ 
   │   ├── BRAINWEB.py
   │
-  ├── logs/ - default directory for storing tensorboard logs 
+  ├── logs/  
   │
   ├── mains/ 
   │   ├── main_AE.py
+  │   ├── main_CE.py
+  │   ├── main_ceVAE.py
+  │   ├── main_fAnoGAN.py
+  |   ├── main_GMVAE.py
+  │   ├── main_VAE.py
+  │   └── main_WAEGAN.py
   │
   ├── model/ 
   │   ├── autoencoder.py
@@ -104,11 +112,28 @@ Folder to store your downloaded dataset from Brainweb website. Make sure to conf
   │ 
   ├── trainers/ 
   │   ├── AE.py
-  │   └── 
+  │   ├── VAE.py
+  │   ├── CE.py
+  │   ├── ceVAE.py
+  │   ├── GMVAE.py
+  |   ├── fAnoGAN.py
+  │   ├── anoVAEGAN.py
+  |   ├── WAEGAN.py
+  |   ├── Metrics.py
+  │   ├── trainer_utils.py
+  │   ├── AEMODEL.py
+  │   └── DLMODEL.py
   │  
   └── utils/ 
-      ├── util.py
-      └── 
+  │   ├── default_config_setup.py
+  |   ├── Evaluation.py
+  │   ├── image_utils.py
+  |   ├── logger.py
+  |   ├── MINC.py
+  │   ├── NII.py
+  │   ├── tfrecord_utils.py
+  │   └── utils.py
+
 ```
 
 ## Usage
