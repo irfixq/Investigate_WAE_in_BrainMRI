@@ -11,13 +11,33 @@ UAD_brain_MRI.ipynb
 ```
 run.py
 ```
-**python code for user defined function on reset default graph, handle additional Config parameters, create an instance of the model and train it, evaluate best dice, evaluate generalization
+* python code for user defined function on reset default graph, handle additional Config parameters, create an instance of the model and train it, evaluate best dice, evaluate generalization
 ```
-run.py
+requirements.txt
 ```
-* requirements.txt -> list of python packages and its version
+* list of python packages and its version
+```
+GPU_configuration.txt
+```
+* steps to configure GPU using CUDA core on local machine or cloud platform. This research is using TensorFlow with GPU support. More information about GPU installation can be retrieved [here](https://www.tensorflow.org/install/gpu) and [here](https://www.tensorflow.org/guide/gpu).
+```
+FILE_NAME
+```
 
-Folder Hierarchy level:
+```
+FILE_NAME
+```
+
+```
+FILE_NAME
+```
+
+```
+FILE_NAME
+```
+
+
+### Folder Hierarchy level:
 ```
   Unsupervised_Anomaly_Detection_Brain_MRI/
   │
