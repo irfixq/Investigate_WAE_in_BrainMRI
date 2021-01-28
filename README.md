@@ -7,36 +7,35 @@ Below is the folder structure for this repository:
 
 #### UAD_brain_MRI.ipynb 
 ```
-* python integrated notebook that contain all master code. This file can be run on local machine (Jupyter Notebook) and also cloud platform (Google Collaboratory).
+python integrated notebook that contain all master code. This file can be run on local machine (Jupyter Notebook) and also cloud platform (Google Collaboratory).
 ```
+#### run.py
 ```
-run.py
+python code for user defined function on reset default graph, handle additional Config parameters, create an instance of the model and train it, evaluate best dice, evaluate generalization
 ```
-* python code for user defined function on reset default graph, handle additional Config parameters, create an instance of the model and train it, evaluate best dice, evaluate generalization
+#### requirements.txt
 ```
-requirements.txt
+list of python packages and its version
 ```
-* list of python packages and its version
+### GPU_configuration.txt
 ```
-GPU_configuration.txt
+steps to configure GPU using CUDA core on local machine or cloud platform. This research is using TensorFlow with GPU support. More information about GPU installation can be retrieved [here](https://www.tensorflow.org/install/gpu) and [here](https://www.tensorflow.org/guide/gpu).
 ```
-* steps to configure GPU using CUDA core on local machine or cloud platform. This research is using TensorFlow with GPU support. More information about GPU installation can be retrieved [here](https://www.tensorflow.org/install/gpu) and [here](https://www.tensorflow.org/guide/gpu).
-```
-FILE_NAME
-```
-
-```
-FILE_NAME
+#### FILE_NAME
 ```
 
 ```
-FILE_NAME
+#### FILE_NAME
 ```
 
 ```
-FILE_NAME
+#### FILE_NAME
 ```
 
+```
+#### FILE_NAME
+```
+```
 
 ### Folder Hierarchy level:
 ```
