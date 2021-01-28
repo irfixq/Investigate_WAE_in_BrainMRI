@@ -4,10 +4,11 @@ This repository contains code for my Master Research Project (P2).
 
 ## Folder Structure
 Below is the folder structure for this repository:
-```
-UAD_brain_MRI.ipynb 
+
+#### UAD_brain_MRI.ipynb 
 ```
 * python integrated notebook that contain all master code. This file can be run on local machine (Jupyter Notebook) and also cloud platform (Google Collaboratory).
+```
 ```
 run.py
 ```
