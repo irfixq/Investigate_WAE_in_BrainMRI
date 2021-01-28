@@ -1,47 +1,83 @@
-# Autoencoders for Unsupervised Anomaly Segmentation in Brain MR Images: A Comparative Study
+# Investigate Wasserstein Auto-Encoder for Unsupervised Anomaly Detection in Brain MRI
 
-This repository contains the code for our paper on [Autoencoders for Unsupervised Anomaly Segmentation in Brain MR Images: A Comparative Study](http://arxiv.org/abs/2004.03271). 
-If you use any of our code, please cite:
-```
-@article{Baur2020,
-  title = {Autoencoders for Unsupervised Anomaly Segmentation in Brain MR Images: A Comparative Study},
-  author = {Baur, Christoph and Denner, Stefan and Wiestler, Benedikt and Albarqouni, Shadi and Navab, Nassir},
-  url = {http://arxiv.org/abs/2004.03271},
-  year = {2020}
-}
-
-```
-```
-@inproceedings{baur2018deep,
-  title={Deep autoencoding models for unsupervised anomaly segmentation in brain MR images},
-  author={Baur, Christoph and Wiestler, Benedikt and Albarqouni, Shadi and Navab, Nassir},
-  booktitle={International MICCAI Brainlesion Workshop},
-  pages={161--169},
-  year={2018},
-  organization={Springer}
-}
-```
-* [Autoencoders for Unsupervised Anomaly Segmentation in Brain MR Images: A Comparative Study](#autoencoders-for-unsupervised-anomaly-segmentation-in-brain-mr-images-a-comparative-study)
-  * [Requirements](#requirements)
-  * [Folder Structure](#folder-structure)
-  * [Usage](#usage)
-      * [Config file format](#config-file-format)
-      * [CLI-Usage](#cli-usage)
-  * [Disclaimer](#disclaimer)
-  * [License](#license)
-    
-
-<!-- /code_chunk_output -->
-
-## Requirements
-* Python >= 3.6
-
-All packages used in this repository are listed in [requirements.txt](https://github.com/StefanDenn3r/Unsupervised_Anomaly_Detection_Brain_MRI/blob/master/requirements.txt).
-To install those, run `pip3 install -r requirements.txt`
-
+This repository contains code for my Master Research Project (P2).
 
 ## Folder Structure
-  ```
+Below is the file description for this repository:
+
+#### UAD_brain_MRI.ipynb 
+* Python integrated notebook that contain all master code. This file can be run on local machine (Jupyter Notebook) and also cloud platform (Google Collaboratory).
+
+
+#### run.py
+* Python code for user defined function on reset default graph, handle additional Config parameters, create an instance of the model and train it, evaluate best dice, evaluate generalization.
+
+
+#### requirements.txt
+* List of python packages and its version.
+
+
+#### GPU_configuration.txt
+* Steps to configure GPU using CUDA core on local machine or cloud platform. This research is using TensorFlow with GPU support. More information about GPU installation can be retrieved [here](https://www.tensorflow.org/install/gpu) and some guide for GPU usage [here](https://www.tensorflow.org/guide/gpu).
+
+
+#### config.default.json
+* Configuration file for path directory. Below is the step to follow to configure this JSON file:
+1. Define source path of dataset
+2. Update dataloaders if you want to use your own dataset other than Brainweb dataset. However, Brainweb could update their database from time to time. Hence, few code enhancement is needed especially in dataloaders
+
+
+#### Folder: utils
+Contain small utility functions written in python such as for;
+1. Evaluation.py - 
+For image reconstruction, confusion matrix calculation, logistic function to squash reconstruction error, expand dimension, kernel size, compute detection rate for predicted volume and ground truth volume, determine number of training samples, iteration over all unhealthy data, sanity checks, get sample data without dropout, data normalization, evaluate unhealthy samples (lesion), compute ROC curev and PRC curve.
+
+2. MINC.py - 
+Contain python package ([NiBabel](https://nipy.org/nibabel/)) for read and write access to neuroimaging file format which in this case is to convert MINC format to NII/Nifti format.
+
+3. NII.py - 
+Contain code for evaluating segmentation results using [SimpleITK](https://simpleitk.org/) package. This code also used to visualize the NII data view mapping.
+
+4. default_config_setup.py - 
+Contain python code to setup the class and user defined function from Brainweb dataset.
+
+5. image_utils.py - 
+Contain image dimension configuration and user defined function for prediction and groundtruth to image.
+
+6. logger.py - 
+Contain public TensorFlow interface to summarize training, validation and testing phase. More detail about each variable used in this code can be found [here](https://www.tensorflow.org/api_docs/python/tf/compat/v1#functions).
+
+7. tfrecord_utils.py - 
+Utilities to simplify working with TFRecord files and TensorFlow data pipeline. This is a simple format for storing a sequence binary records for efficient serialization of structured data. each observation values need to be converted to a [tf.train.Feature](https://www.tensorflow.org/tutorials/load_data/tfrecord#tftrainexample) by creating dataset using NumPy.
+
+8. utils.py - 
+Configuration file to visualize the data using python and export back as .pdf file.
+
+#### Folder: trainers
+Trainers including definition of loss functions, metrics and restoration methods. Contain 'DLMODEL.py' and 'AEMODEL.py' as baseline class for all Deep Learning needs with TensorFlow. All trainers code also contain early stopping as the validation method. the code is written in separate python file for each trainer.
+
+#### Folder: models
+Contain model architecture definitions.
+
+
+#### Folder: mains
+Main files to train each architecture.
+
+
+#### Folder: logs
+Just create an empty folder to store tensorboard logs.
+
+
+#### Folder: dataloaders
+Contain user defined functions to read Brainweb data. More information about Brainweb data format in NII can be retrieved [here](https://radiopaedia.org/articles/nifti-file-format).
+
+
+#### Folder: Brainweb
+Folder to store your downloaded dataset from Brainweb website. Make sure to configure the path properly in config.default.json file. In this folder, i put sample of data in .mnc.gz format , pckl file and tfrecord file.
+
+
+### Folder Hierarchy level:
+```
   Unsupervised_Anomaly_Detection_Brain_MRI/
   │
   ├── Unsupervised Anomaly Detection Brain-MRI.ipynb - Jupyter notebook to work on Google Colab
@@ -50,61 +86,33 @@ To install those, run `pip3 install -r requirements.txt`
   │
   ├── data_loaders/ - Definition of dataloaders
   │   ├── BRAINWEB.py
-  │   ├── MSISBI2015.py
-  │   └── ...
   │
-  ├── logs/ - default directory for storing tensorboard logs
+  ├── logs/ - default directory for storing tensorboard logs 
   │
-  ├── mains/ - Main files to train each architecture
+  ├── mains/ 
   │   ├── main_AE.py
-  │   └── ...
   │
-  ├── model/ - Architecture definitions
+  ├── model/ 
   │   ├── autoencoder.py
-  │   └── ...
-  │
-  ├── trainers/ - trainers including definition of loss functions, metrics and restoration methods
+  │   ├── variational_autoencoder.py
+  │   ├── context_encoding_autoencoder.py
+  │   ├── context_encoding_variational_autoencoder.py
+  │   ├── Gaussian_mixture_variational_autoencoder.py
+  |   ├── fAnoGAN.py
+  │   ├── anoVAEGAN.py
+  │   └── WAEGAN.py
+  │ 
+  ├── trainers/ 
   │   ├── AE.py
-  │   └── ...
+  │   └── 
   │  
-  └── utils/ - small utility functions
+  └── utils/ 
       ├── util.py
-      └── ...
-  ```
-
-## Usage
-
-Since we utilized a private dataset for training on healthy data we exchanged this dataset in the code with the publicly available Brainweb dataset. 
-The Brainweb dataset can be downloaded [here](https://brainweb.bic.mni.mcgill.ca/).
-
-### Config file format
-First define the path to the data directories in `config.default.json`.
-Of course only those you want to use have to be defined. 
-If you want to use your own dataset, check how the dataloaders in `dataloaders` 
-are defined and implement your own to work with our code.
-```json
-{
-  "BRAINWEBDIR": "path/to/Brainweb",
-  "MSSEG2008DIR": "path/to/MSSEG2008",
-  "MSISBI2015DIR": "path/to/ISBIMSlesionChallenge",
-  "MSLUBDIR": "path/to/MSlub",
-  "CHECKPOINTDIR": "path/to/saved/checkpoints",
-  "SAMPLEDIR": "path/to/saved/sample_dir"
-}
+      └── 
 ```
 
-### CLI Usage
-For the results of our paper we used the `run.py`. 
-Every model can also be trained individually using the script which are provided in the `mains` folder.
+## Usage
+Data consumed in this project can be obtained from Brainweb website. The modality parameters can be custom and controlled by user. the dataset can be downloaded [here](https://brainweb.bic.mni.mcgill.ca/).
 
 
-### Google Colab Usage
-Training can be started by importing `Unsupervised Anomaly Detection Brain-MRI.ipynb` in [Google Colab](http://colab.research.google.com).
-This github repository is linked and can directly loaded into the notebook. However, the datasets have to be stored so that Google Colab can access them. 
-Either uploading by a zip-file or uploading it to Google Drive and mounting the drive.
 
-## Disclaimer
-The code has been cleaned and polished for the sake of clarity and reproducibility, and even though it has been checked thoroughly, it might contain bugs or mistakes. Please do not hesitate to open an issue or contact the authors to inform of any problem you may find within this repository.
-
-## License
-This project is licensed under the GNU General Public License v3.0. See LICENSE for more details
