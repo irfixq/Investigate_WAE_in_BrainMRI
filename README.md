@@ -5,7 +5,7 @@ This repository contains code for my Master Research Project (P2).
 ## Folder Structure
 Below is the folder structure for this repository:
 
-#### UAD_brain_MRI.ipynb 
+##### UAD_brain_MRI.ipynb 
 ```
 python integrated notebook that contain all master code. This file can be run on local machine (Jupyter Notebook) and also cloud platform (Google Collaboratory).
 ```
@@ -21,23 +21,23 @@ list of python packages and its version
 ```
 steps to configure GPU using CUDA core on local machine or cloud platform. This research is using TensorFlow with GPU support. More information about GPU installation can be retrieved [here](https://www.tensorflow.org/install/gpu) and [here](https://www.tensorflow.org/guide/gpu).
 ```
-#### FILE_NAME
+##### FILE_NAME
 ```
 
 ```
-#### FILE_NAME
+##### FILE_NAME
 ```
 
 ```
-#### FILE_NAME
+##### FILE_NAME
 ```
 
 ```
-#### FILE_NAME
+##### FILE_NAME
 ```
 ```
 
-#### Folder Hierarchy level:
+### Folder Hierarchy level:
 ```
   Unsupervised_Anomaly_Detection_Brain_MRI/
   │
@@ -48,19 +48,18 @@ steps to configure GPU using CUDA core on local machine or cloud platform. This 
   ├── data_loaders/ - Definition of dataloaders
   │   ├── BRAINWEB.py
   │
-  ├── logs/ - default directory for storing tensorboard logs
+  ├── logs/ - default directory for storing tensorboard logs  ##will be generated once you run the code
   │
   ├── mains/ - Main files to train each architecture
   │   ├── main_AE.py
-  │   └── ...
   │
   ├── model/ - Architecture definitions
   │   ├── autoencoder.py
-  │   └── ...
-  │
+  │   └── 
+  │ 
   ├── trainers/ - trainers including definition of loss functions, metrics and restoration methods
   │   ├── AE.py
-  │   └── ...
+  │   └── 
   │  
   └── utils/ - small utility functions
       ├── util.py
