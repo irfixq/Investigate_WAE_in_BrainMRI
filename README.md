@@ -21,9 +21,11 @@ list of python packages and its version
 ```
 steps to configure GPU using CUDA core on local machine or cloud platform. This research is using TensorFlow with GPU support. More information about GPU installation can be retrieved [here](https://www.tensorflow.org/install/gpu) and [here](https://www.tensorflow.org/guide/gpu).
 ```
-##### FILE_NAME
+##### config.default.json
 ```
-
+configuration file for directory \n
+1. define source path of dataset
+2. update dataloaders if you want to use your own dataset other than Brainweb dataset. However, Brainweb could update their database from time to time. Hence, few code enhancement is needed especially in dataloaders
 ```
 ##### FILE_NAME
 ```
