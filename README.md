@@ -48,14 +48,13 @@ Contain image dimension configuration and user defined function for prediction a
 Contain public TensorFlow interface to summarize training, validation and testing phase. More detail about each variable used in this code can be found [here](https://www.tensorflow.org/api_docs/python/tf/compat/v1#functions).
 
 7. tfrecord_utils.py - 
-
+Utilities to simplify working with TFRecord files and TensorFlow data pipeline. This is a simple format for storing a sequence binary records for efficient serialization of structured data. each observation values need to be converted to a [tf.train.Feature](https://www.tensorflow.org/tutorials/load_data/tfrecord#tftrainexample) by creating dataset using NumPy.
 
 8. utils.py - 
-
+Configuration file to visualize the data using python and export back as .pdf file.
 
 #### Folder: trainers
-Trainers including definition of loss functions, metrics and restoration methods.
-
+Trainers including definition of loss functions, metrics and restoration methods. Contain 'DLMODEL.py' and 'AEMODEL.py' as baseline class for all Deep Learning needs with TensorFlow. All trainers code also contain early stopping as the validation method. the code is written in separate python file for each trainer.
 
 #### Folder: models
 Contain model architecture definitions.
@@ -74,7 +73,7 @@ Contain user defined functions to read Brainweb data. More information about Bra
 
 
 #### Folder: Brainweb
-Folder to store your downloaded dataset from Brainweb website. Make sure 
+Folder to store your downloaded dataset from Brainweb website. Make sure to configure the path properly in config.default.json file. In this folder, i put sample of data in .mnc.gz format , pckl file and tfrecord file.
 
 
 ### Folder Hierarchy level:
