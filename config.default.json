@@ -1,0 +1,5 @@
+{
+  "BRAINWEBDIR": "path/to/Brainweb",
+  "CHECKPOINTDIR": "path/to/saved/checkpoints",
+  "SAMPLEDIR": "path/to/saved/sample_dir"
+}
