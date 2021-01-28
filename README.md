@@ -3,41 +3,76 @@
 This repository contains code for my Master Research Project (P2).
 
 ## Folder Structure
-Below is the folder structure for this repository:
+Below is the file description for this repository:
+
+#### UAD_brain_MRI.ipynb 
+* Python integrated notebook that contain all master code. This file can be run on local machine (Jupyter Notebook) and also cloud platform (Google Collaboratory).
 
 
-##### UAD_brain_MRI.ipynb 
-* python integrated notebook that contain all master code. This file can be run on local machine (Jupyter Notebook) and also cloud platform (Google Collaboratory).
+#### run.py
+* Python code for user defined function on reset default graph, handle additional Config parameters, create an instance of the model and train it, evaluate best dice, evaluate generalization.
 
 
-##### run.py
-* python code for user defined function on reset default graph, handle additional Config parameters, create an instance of the model and train it, evaluate best dice, evaluate generalization.
+#### requirements.txt
+* List of python packages and its version.
 
 
-##### requirements.txt
-* list of python packages and its version.
+#### GPU_configuration.txt
+* Steps to configure GPU using CUDA core on local machine or cloud platform. This research is using TensorFlow with GPU support. More information about GPU installation can be retrieved [here](https://www.tensorflow.org/install/gpu) and some guide for GPU usage [here](https://www.tensorflow.org/guide/gpu).
 
 
-##### GPU_configuration.txt
-* steps to configure GPU using CUDA core on local machine or cloud platform. This research is using TensorFlow with GPU support. More information about GPU installation can be retrieved [here](https://www.tensorflow.org/install/gpu) and some guide for GPU usage [here](https://www.tensorflow.org/guide/gpu).
+#### config.default.json
+* Configuration file for path directory. Below is the step to follow to configure this JSON file:
+1. Define source path of dataset
+2. Update dataloaders if you want to use your own dataset other than Brainweb dataset. However, Brainweb could update their database from time to time. Hence, few code enhancement is needed especially in dataloaders
 
 
-##### config.default.json
-* configuration file for directory
-1. define source path of dataset
-2. update dataloaders if you want to use your own dataset other than Brainweb dataset. However, Brainweb could update their database from time to time. Hence, few code enhancement is needed especially in dataloaders
+#### FOLDER: utils
+* Contain small utility functions written in python such as for;
+1. Evaluation - 
+For image reconstruction, confusion matrix calculation, logistic function to squash reconstruction error, expand dimension, kernel size, compute detection rate for predicted volume and ground truth volume, determine number of training samples, iteration over all unhealthy data, sanity checks, get sample data without dropout, data normalization, evaluate unhealthy samples (lesion), compute ROC curev and PRC curve.
+
+2. MINC.py - 
+Contain python package (NiBabel) for read and write access to neuroimaging file format which in this case is to convert MINC format to NII/Nifti format.
+
+3. NII.py - 
 
 
-##### FILE_NAME
+4. default_config_setup.py
+
+5. image_utils.py
+
+6. logger.py
+
+7. tfrecord_utils.py
+
+8. utils.py
+
+
+
+
+#### FOLDER: trainers
 * 
 
 
-##### FILE_NAME
+#### FOLDER: models
 * 
 
 
-##### FILE_NAME
+#### FOLDER: mains
 * 
+
+
+#### FOLDER: logs
+* Just create an empty folder to store tensorboard logs.
+
+
+#### FOLDER: dataloaders
+* Contain user defined functions to read Brainweb data. More information about Brainweb data format in NII can be retrieved [here](https://radiopaedia.org/articles/nifti-file-format).
+
+
+#### FOLDER: Brainweb
+* Folder to store your downloaded dataset from Brainweb website. Make sure 
 
 
 ### Folder Hierarchy level:
@@ -51,7 +86,7 @@ Below is the folder structure for this repository:
   ├── data_loaders/ - Definition of dataloaders
   │   ├── BRAINWEB.py
   │
-  ├── logs/ - default directory for storing tensorboard logs  ##will be generated once you run the code
+  ├── logs/ - default directory for storing tensorboard logs 
   │
   ├── mains/ - Main files to train each architecture
   │   ├── main_AE.py
