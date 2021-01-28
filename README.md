@@ -28,7 +28,7 @@ Below is the file description for this repository:
 
 
 #### Folder: utils
-* Contain small utility functions written in python such as for;
+Contain small utility functions written in python such as for;
 1. Evaluation.py - 
 For image reconstruction, confusion matrix calculation, logistic function to squash reconstruction error, expand dimension, kernel size, compute detection rate for predicted volume and ground truth volume, determine number of training samples, iteration over all unhealthy data, sanity checks, get sample data without dropout, data normalization, evaluate unhealthy samples (lesion), compute ROC curev and PRC curve.
 
@@ -38,43 +38,43 @@ Contain python package ([NiBabel](https://nipy.org/nibabel/)) for read and write
 3. NII.py - 
 Contain code for evaluating segmentation results using [SimpleITK](https://simpleitk.org/) package. This code also used to visualize the NII data view mapping.
 
-4. default_config_setup.py
+4. default_config_setup.py - 
 Contain python code to setup the class and user defined function from Brainweb dataset.
 
-5. image_utils.py
+5. image_utils.py - 
 Contain image dimension configuration and user defined function for prediction and groundtruth to image.
 
-6. logger.py
+6. logger.py - 
 Contain public TensorFlow interface to summarize training, validation and testing phase. More detail about each variable used in this code can be found [here](https://www.tensorflow.org/api_docs/python/tf/compat/v1#functions).
 
-7. tfrecord_utils.py
+7. tfrecord_utils.py - 
 
 
-8. utils.py
+8. utils.py - 
 
 
 #### Folder: trainers
-* 
+Trainers including definition of loss functions, metrics and restoration methods.
 
 
 #### Folder: models
-* 
+Contain model architecture definitions.
 
 
 #### Folder: mains
-* 
+Main files to train each architecture.
 
 
 #### Folder: logs
-* Just create an empty folder to store tensorboard logs.
+Just create an empty folder to store tensorboard logs.
 
 
 #### Folder: dataloaders
-* Contain user defined functions to read Brainweb data. More information about Brainweb data format in NII can be retrieved [here](https://radiopaedia.org/articles/nifti-file-format).
+Contain user defined functions to read Brainweb data. More information about Brainweb data format in NII can be retrieved [here](https://radiopaedia.org/articles/nifti-file-format).
 
 
 #### Folder: Brainweb
-* Folder to store your downloaded dataset from Brainweb website. Make sure 
+Folder to store your downloaded dataset from Brainweb website. Make sure 
 
 
 ### Folder Hierarchy level:
@@ -90,20 +90,26 @@ Contain public TensorFlow interface to summarize training, validation and testin
   │
   ├── logs/ - default directory for storing tensorboard logs 
   │
-  ├── mains/ - Main files to train each architecture
+  ├── mains/ 
   │   ├── main_AE.py
   │
-  ├── model/ - Architecture definitions
+  ├── model/ 
   │   ├── autoencoder.py
-  │   └── 
+  │   ├── variational_autoencoder.py
+  │   ├── context_encoding_autoencoder.py
+  │   ├── context_encoding_variational_autoencoder.py
+  │   ├── Gaussian_mixture_variational_autoencoder.py
+  |   ├── fAnoGAN.py
+  │   ├── anoVAEGAN.py
+  │   └── WAEGAN.py
   │ 
-  ├── trainers/ - trainers including definition of loss functions, metrics and restoration methods
+  ├── trainers/ 
   │   ├── AE.py
   │   └── 
   │  
-  └── utils/ - small utility functions
+  └── utils/ 
       ├── util.py
-      └── ...
+      └── 
 ```
 
 ## Usage
