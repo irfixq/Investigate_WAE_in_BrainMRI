@@ -144,7 +144,7 @@ Folder to store your downloaded dataset from Brainweb website. Make sure to conf
 Data consumed in this project can be obtained from Brainweb website. The modality parameters can be custom and controlled by user. the dataset can be downloaded [here](https://brainweb.bic.mni.mcgill.ca/).
 
 **Disclaimer: 
-The data was collected on July - October 2020. Hence, you might need to tune some hyperparameter and dataloader to fit into the latest Brainweb dataset as the website might update their data and format.
+The data was collected from July - October 2020. Hence, you might need to tune some hyperparameter and dataloader to fit into the latest Brainweb dataset as the website might update their data and format.
 
 
 
