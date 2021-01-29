@@ -3,7 +3,7 @@
 This repository contains code for my Master Research Project (P2).
 
 **Disclaimer:
-The code has been cleaned and polished for the sake of clarity and reproducibility, and even though it has been checked thoroughly, it might contain bugs or mistakes. Please do not hesitate to open an issue or contact the authors to inform of any problem you may find within this repository.
+The code has been cleaned and polished for the sake of clarity and reproducibility, and even though it has been checked thoroughly, it might contain bugs or mistakes. Please do not hesitate to open an issue or contact the authors to inform of any problem you may find within this repository. 
 
 
 ## Folder Structure
@@ -142,6 +142,9 @@ Folder to store your downloaded dataset from Brainweb website. Make sure to conf
 
 ## Usage
 Data consumed in this project can be obtained from Brainweb website. The modality parameters can be custom and controlled by user. the dataset can be downloaded [here](https://brainweb.bic.mni.mcgill.ca/).
+
+**Disclaimer: 
+The data was collected on July - October 2020. Hence, you might need to tune some hyperparameter and dataloader to fit into the latest Brainweb dataset as the website might update their data and format.
 
 
 
