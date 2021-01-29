@@ -2,7 +2,7 @@
 
 This repository contains code for my Master Research Project (P2).
 
-* **Disclaimer:
+**Disclaimer:
 The code has been cleaned and polished for the sake of clarity and reproducibility, and even though it has been checked thoroughly, it might contain bugs or mistakes. Please do not hesitate to open an issue or contact the authors to inform of any problem you may find within this repository.
 
 
